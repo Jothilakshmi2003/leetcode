@@ -21,6 +21,7 @@ public class Solution {
                 if (mat[i][j] == 1) {
                     mat[i][j] += mat[i][j - 1];
                 }
+
             }
         }
 
