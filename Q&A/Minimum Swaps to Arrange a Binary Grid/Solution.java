@@ -22,9 +22,11 @@ public class Solution {
             int j = i;
 
             // Find a row with enough trailing zeros
-            while (j < n && zeros[j] < needed) j++;
+            while (j < n && zeros[j] < needed)
+                j++;
 
-            if (j == n) return -1;
+            if (j == n)
+                return -1;
 
             // Bubble it up
             while (j > i) {
@@ -39,10 +41,27 @@ public class Solution {
         return swaps;
     }
 
-// Main method for VS Code
-public static void main(String[] args) {
+    // Main method for VS Code
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Solution sol = new Solution();
 
         System.out.print("Enter grid size (n): ");
-        int n
+        int n = sc.nextInt();
+
+        int[][] grid = new int[n][n];
+
+        System.out.println("Enter grid values (0 or 1):");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                grid[i][j] = sc.nextInt();
+            }
+        }
+
+        int result = sol.minSwaps(grid);
+
+        System.out.println("Minimum swaps required: " + result);
+
+        sc.close();
+    }
+}
