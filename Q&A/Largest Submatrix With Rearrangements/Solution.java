@@ -53,7 +53,7 @@ public class Solution {
             }
         }
 
-        int result = sol.largestSubmatrix(matrix);
+      git   int result = sol.largestSubmatrix(matrix);
         System.out.println("Largest Submatrix Area: " + result);
 
         sc.close();
