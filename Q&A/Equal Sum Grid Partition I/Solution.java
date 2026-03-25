@@ -18,10 +18,13 @@ public class Solution {
             }
         }
 
-        if (total % 2 != 0) return false;
+        if (total % 2 != 0)
+            return false;
 
-        if (check(rowSum, total)) return true;
-        if (check(colSum, total)) return true;
+        if (check(rowSum, total))
+            return true;
+        if (check(colSum, total))
+            return true;
 
         return false;
     }
@@ -31,8 +34,10 @@ public class Solution {
         long right = total - left;
 
         for (int i = 1; i < arr.length; i++) {
-            if (left == right) return true;
-            else if (left > right) return false;
+            if (left == right)
+                return true;
+            else if (left > right)
+                return false;
             left += arr[i];
             right -= arr[i];
         }
