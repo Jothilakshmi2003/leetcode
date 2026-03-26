@@ -1,4 +1,6 @@
-class Solution {
+import java.util.*;
+
+public class Solution {
 
     boolean canRemove(int r1, int c1, int r2, int c2, int i, int j) {
         int rows = r2 - r1 + 1;
@@ -46,6 +48,7 @@ class Solution {
 
         long total = prefRow[n - 1];
 
+        // Horizontal cuts
         for (int i = 0; i < n - 1; i++) {
             long top = prefRow[i];
             long bottom = total - top;
@@ -73,6 +76,7 @@ class Solution {
             }
         }
 
+        // Vertical cuts
         for (int j = 0; j < m - 1; j++) {
             long left = prefCol[j];
             long right = total - left;
@@ -101,5 +105,31 @@ class Solution {
         }
 
         return false;
+    }
+
+    // Main method for VS Code
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Solution sol = new Solution();
+
+        System.out.print("Enter rows: ");
+        int n = sc.nextInt();
+
+        System.out.print("Enter columns: ");
+        int m = sc.nextInt();
+
+        int[][] grid = new int[n][m];
+
+        System.out.println("Enter grid values:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                grid[i][j] = sc.nextInt();
+            }
+        }
+
+        boolean result = sol.canPartitionGrid(grid);
+        System.out.println("Can partition grid: " + result);
+
+        sc.close();
     }
 }
